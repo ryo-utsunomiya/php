@@ -24,7 +24,7 @@
   <dt>性別は？</dt>
   <dd>
 <?php
-$number = array(0, 1);
+$number = array(1, 2);
 $male = '男性';
 $female = '女性';
 echo '<label><input type="radio" name="gender" value="' . $number[0] . '" id="" />' . $male . '</label>' . "\n";

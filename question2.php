@@ -155,14 +155,13 @@ if ($error == 0) {
     // ファイルポインタを先頭に戻す
     rewind($fp);
     foreach ($writebuffer as $value) {
-        fwrite($fp, $value, "\n");
+        fwrite($fp, $value . "\n");
     }
     // ファイルを閉じる（ロック解除）
     fclose($fp);
     
     echo '</dl>';
-    echo '<
-p>以上の内容を保存しました！</p>';
+    echo '<p>以上の内容を保存しました！</p>';
     echo '<p><a href="question3.php">集計結果を見る</a></p>';
 } else {
     // 入力エラーがある場合のエラー表示
