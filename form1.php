@@ -3,7 +3,12 @@ session_start();
 // セッションIDを変更
 session_regenerate_id(TRUE);
 
+// カスタム関数
 require '/home/ryo/dev/4webcr8r/libs/functions.php';
+
+// 画像認証ライブラリー
+$cryptinstall =  '/crypt/cryptographp.fct.php';
+require $cryptinstall;
 
 $data = array();
 

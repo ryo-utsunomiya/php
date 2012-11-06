@@ -42,6 +42,12 @@
   <dd><label>
   <textarea name="body" cols="50" rows="10"><?php echo $body;?></textarea>
   </label></dd>
+  <dt>確認キーワード</dt>
+  <dd class="captcha_view"><label for="" class="clearfix">
+      <?php dsp_crypt(0,1); ?><br />
+      <span>表示されているキーワードをご記入ください。</span><br />
+      <input type="text" name="code" />
+  </label></dd>
   </dl>
   <p>
   <input type="hidden" name="ticket" value="<?php echo $ticket; ?>" />
