@@ -3,6 +3,10 @@ session_start();
 
 require '/home/ryo/dev/4webcr8r/libs/functions.php';
 
+// 画像認証ライブラリー
+$cryptinstall =  '/crypt/cryptographp.fct.php';
+require $cryptinstall;
+
 $_POST = checkInput($_POST);
 
 // 固定トークンを確認
@@ -19,11 +23,13 @@ $name = isset($_POST['name']) ? $_POST['name'] : NULL;
 $email = isset($_POST['email']) ? $_POST['email'] : NULL;
 $subject = isset($_POST['subject']) ? $_POST['subject'] : NULL;
 $body = isset($_POST['body']) ? $_POST['body'] : NULL;
+$code = isset($_POST['code']) ? $_POST['code'] : NULL;
 
 $name = trim($name);
 $email = trim($email);
 $subject = trim($subject);
 $body = trim($body);
+$code = trim($code);
 
 $error = array();
 
@@ -52,6 +58,13 @@ if ($body == '') {
     $error[] = '内容は必須項目です';
 } else if (mb_strlen($body) > 500) {
     $error[] = '内容は500文字以内でお願い致します';
+}
+
+// 画像認証をチェック
+if (mb_strlen($code) <> 4) {
+    $error[] = '確認キーワードは4文字以内で入力してください';
+} else if (!chk_crypt($code)) {
+    $error[] = '確認キーワードが誤っています';
 }
 
 if (count($error) > 0) {
