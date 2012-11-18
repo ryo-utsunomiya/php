@@ -77,4 +77,20 @@ if (count($error) > 0) {
     $data['body'] = $body;
     $data['ticket'] = $ticket;
     display('form_view.php', $data);
-} 
+} else { // エラーが0の場合
+    // POSTされたデータをセッション変数に保存
+    $_SESSION['name'] = $name;
+    $_SESSION['email'] = $email;
+    $_SESSION['subject'] = $subject;
+    $_SESSION['body'] = $body;
+    
+    // 確認画面を表示
+    $data = array();
+    $data['name'] = $name;
+    $data['email'] = $email;
+    $data['subject'] = $subject;
+    $data['body'] = $body;
+    $data['ticket'] = $ticket;
+    display('form2_view,php', $data);
+    
+}

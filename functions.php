@@ -14,7 +14,11 @@ function h($var) {
 function display($template, $data) {
     foreach ($data as $key => $val) {
         // テンプレートで使う変数を作成
-        $$key = h($val); // 値をエスケープ処理
+        if (substr($key, -4) === '_raw') {
+            $$key = $val;
+        } else {
+            $$key = h($val); // 値をエスケープ処理
+        }
     }
     // $dataを破棄
     unset($data);

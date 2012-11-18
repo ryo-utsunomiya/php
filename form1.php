@@ -12,10 +12,10 @@ require $cryptinstall;
 
 $data = array();
 
-$data['name'] = NULL;
-$data['email'] = NULL;
-$data['subject'] = NULL;
-$data['body'] = NULL;
+$data['name'] = isset($_SESSION['name']) ? $_SESSION['name'] : NULL;
+$data['email'] = isset($_SESSION['email']) ? $_SESSION['email'] : NULL;
+$data['subject'] = isset($_SESSION['subject']) ? $_SESSION['subject'] : NULL;
+$data['body'] = isset($_SESSION['body']) ? $_SESSION['body'] : NULL;
 
 // CSRF対策の固定トークンを生成
 if (empty($_SESSION['ticket'])) {

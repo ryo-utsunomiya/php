@@ -2,3 +2,23 @@
 *.prefs
 
 .project
+
+.idea/encodings.xml
+
+.idea/libraries/sass_stdlib.xml
+
+.idea/misc.xml
+
+.idea/modules.xml
+
+.idea/php.iml
+
+.idea/php.xml
+
+.idea/scopes/scope_settings.xml
+
+.idea/vcs.xml
+
+.idea/.name
+
+.idea/workspace.xml
