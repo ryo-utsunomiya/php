@@ -1,0 +1,12 @@
+CREATE TABLE status(
+  id INTEGER AUTO_INCREMENT,
+  user_id INTEGER NOT NULL,
+  body VARCHAR(255),
+  created_at DATETIME,
+  PRIMARY KEY(id),
+  INDEX user_id_index(user_id)
+) ENGINE = INNODB;
+
+ALTER TABLE following ADD FOREIGN KEY (user_id) REFERENCES user(id);
+ALTER TABLE following ADD FOREIGN KEY (following_id) REFERENCES user(id);
+ALTER TABLE status ADD FOREIGN KEY (user_id) REFERENCES user(id);
